@@ -1,6 +1,6 @@
 # 🏠 dotfiles
 
-Configurações pessoais do meu ambiente Hyprland no CachyOS.
+Configurações pessoais do meu ambiente Hyprland no Arch Linux.
 
 ## 🖥️ Setup
 
