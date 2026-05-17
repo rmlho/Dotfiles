@@ -2,6 +2,8 @@
 
 Personal configurations for my Hyprland environment on Arch Linux.
 
+![demo](assets/demo.gif)
+
 ## 🖥️ Setup
 
 | | |
