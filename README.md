@@ -1,4 +1,4 @@
-# Dotfiles
+# Dotfiles - Gruvbox
 
 Personal configurations for my Hyprland environment on Arch Linux.
 
