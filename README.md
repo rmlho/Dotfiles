@@ -1,4 +1,4 @@
-# 🏠 dotfiles
+# Dotfiles
 
 Configurações pessoais do meu ambiente Hyprland no Arch Linux.
 
@@ -27,7 +27,7 @@ dotfiles/
 ├── install.sh
 └── README.md
 
-## 🚀 Instalação
+## Instalação
 
 ```bash
 git clone https://github.com/rmlho/dotfiles.git ~/dotfiles
@@ -36,7 +36,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-## ⚠️ Dependências
+## Dependências
 
 ```bash
 sudo pacman -S hyprland waybar kitty rofi dunst swaync \
