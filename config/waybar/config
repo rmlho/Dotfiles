@@ -1,0 +1,292 @@
+[{
+    "height": 30,
+    "spacing": 5, 
+
+    "modules-left": [
+        "group/Utilities",
+        "group/workspaces",
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "mpris",
+        "group/cpuram",
+        "group/system",
+        "tray"
+],
+
+    "custom/openbracket": {
+        "format": "[",
+        "tooltip": false
+    },
+    "custom/closebracket": {
+        "format": "]",
+        "tooltip": false
+    },    
+    "custom/split": {
+      "format": "|",
+      "tooltip": false
+    },
+
+    "group/Utilities":{
+        "orientation": "horizontal",
+        "modules":[
+            "custom/arch",
+        ]
+    },
+    "custom/arch": {
+         "format": "󰣇",
+        "tooltip": false,
+         "on-click": "rofi -show drun -theme ~/.config/rofi/gruvbox.rasi -theme-str 'window {width: 350px; height: 600px;}' -show-icons"
+    },
+    "custom/powerprofile": {
+        "exec": "~/.config/waybar/scripts/powerprofile.sh display",
+        "on-click": "~/.config/waybar/scripts/powerprofile.sh toggle",
+        "interval": 5,
+        "tooltip": true,
+        "exec-tooltip": "~/.config/waybar/scripts/powerprofile.sh tooltip",
+        "tooltip-format": "Power Profile: {} \nClick to cycle: Efficient → Normal → Overclocked"
+    },
+    "custom/themeswitcher":{
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Click to change theme",
+        "on-click": "~/.config/waybar/scripts/theme-switcher.sh next",
+        "on-click-right": "~/.config/scripts/theme-switcher.sh random"
+    },
+
+    "group/workspaces":{
+        "orientation": "horizontal",
+        "modules":[
+            "hyprland/workspaces",
+        ]
+    },
+   "hyprland/workspaces": {
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "enable-bar-scroll": true,
+    "disable-scroll-wraparound": true,
+    "active-only": false,
+    "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
+    },
+    "format": "[ {icon} ]",
+    "format-icons": {
+        "1": "󰖟 Web",
+        "2": ">_ Term",
+        "3": "󰙵 Make",
+        "4": "󱌣 Dev",
+        "5": "󰍦 Talk",
+        "6": "󰠮 Note",
+        "default": "•"
+    }
+},
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "default": "•"
+        }
+    },
+
+    "mpris": {
+        "format": "[   {status_icon} | {dynamic} ]",
+        "interval": 1,
+        "dynamic-len": 40,
+        "status-icons": {
+            "playing": "▶",
+            "paused": "⏸",
+            "stopped": ""
+        },
+        "dynamic-order": ["artist"]
+    },
+
+
+    "group/windows": {
+        "orientation":"horizontal",
+        "modules":[
+            "custom/openbracket",
+            "hyprland/window",
+            "custom/closebracket"
+        ]
+    },
+    "hyprland/window": {
+        "format": "{title}", 
+        "max-length": 20,
+        "min-length": 0,
+        "all-outputs": true
+    },
+    "niri/window": {
+        "format": "{title}", 
+        "max-length": 20,
+        "min-length": 0,
+        "all-outputs": true
+    },
+
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    
+    "group/cpuram": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "cpu",
+            "custom/split",
+            "memory",
+            "custom/closebracket"
+        ]
+    },
+    "cpu": {
+        "format": "CPU:{usage}%",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "kitty -e btop",
+    },
+    "memory":{
+        "format": "RAM:{}%",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "kitty -e btop",
+    },
+
+    "group/brightvol": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "backlight",
+            "custom/split",
+            "wireplumber",
+            "custom/closebracket"
+        ]
+    },
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "{icon}{volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" :", " :", " :"]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "backlight": {
+        "format": "{icon}:{percent}%",
+        "format-icons": ["", "", "🌙"],
+        "on-click": "~/.config/waybar/scripts/brightness_slider.sh"  
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "clock",
+            "custom/split",
+            "custom/uptime",
+            "battery",
+            "custom/swaync",
+            "custom/closebracket"
+        ]
+    },
+    
+    "clock": {
+        "format": "{:%d/%m %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "custom/clipboard": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/clipboard_menu.sh"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "wlogout"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/swaync": {
+      "format": "",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client --toggle-panel",
+      "interval": 0
+    },
+
+
+
+
+
+
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀 LAN",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ipaddr}\n{ssid} ({signalStrength}%)",
+        "on-click": "kitty -e nmtui",
+        "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ]
+    },
+    "group/clock": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "clock",
+            "custom/closebracket"
+        ]
+    },
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava_wrapper.sh",
+        "format": "♪ {}",
+        "restart-interval": 1,
+        "max-length": 50,
+        "on-click": "pkill cava"
+    },
+
+    "custom/uptime": {
+        "exec": "uptime -p | sed 's/up //'",
+        "interval": 60,
+        "format": "  {}",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "custom/notifications": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/notification_center.sh"
+    }
+}]

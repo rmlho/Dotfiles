@@ -1,0 +1,227 @@
+@define-color background #282828;
+@define-color second-background #3c3836;
+@define-color text #ebdbb2;
+@define-color borders #a89984;
+@define-color focused #fabd2f;
+@define-color focused2 #b8bb26;
+@define-color color1 #83a598;
+@define-color color2 #d3869b;
+@define-color color3 #8ec07c;
+@define-color urgent #fb4934;
+@define-color orange #fe8019;
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 15px;
+}
+
+#custom-openbracket,
+#custom-closebracket {
+  margin: 0 2px;
+  color: @borders;
+}
+
+window#waybar {
+  background-color: @background;
+  border-bottom: 0;
+  color: @text;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+.modules-left {
+  margin: 0;
+  padding: 0 0 0 7px;
+  background-color: transparent;
+  border: none;
+}
+
+.modules-center {
+  margin: 0;
+  padding: 0 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.modules-right {
+  margin: 0;
+  padding: 0 10px 0 0;
+  background-color: transparent;
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+#custom-arch {
+  padding-right: 10px;
+  padding-left: 5px;
+  font-size: 18px;
+  color: @orange;
+}
+
+#custom-arch:hover { color: @focused; }
+
+#custom-powerprofile {
+  padding: 0 8px 0 4px;
+  color: @color3;
+}
+
+#custom-powerprofile:hover { color: @focused; }
+
+#custom-themeswitcher {
+  padding-right: 10px;
+  padding-left: 5px;
+  color: @color2;
+}
+
+#custom-themeswitcher:hover { color: @focused; }
+
+#workspaces button {
+  min-width: 0;
+  padding: 0 8px;
+  background-color: transparent;
+  color: @borders;
+  border-radius: 0;
+}
+
+#workspaces button:hover {
+  background-color: @second-background;
+  color: @text;
+}
+
+#workspaces button.active {
+  color: @focused;
+  background-color: @second-background;
+}
+
+#workspaces button.urgent {
+  background-color: @urgent;
+  color: @background;
+}
+
+.modules-left>widget:first-child>#workspaces { margin-left: 0; }
+.modules-right>widget:last-child>#workspaces { margin-right: 0; }
+
+#mpris {
+  margin: 0 0 0 5px;
+  padding: 0 9px;
+  background-color: @background;
+  color: @color2;
+}
+
+#mpris.playing {
+  background-color: @second-background;
+  color: @color3;
+}
+
+#window {
+  padding: 0 5px;
+  color: @color1;
+}
+
+#clock {
+  padding: 0 10px;
+  color: @focused;
+}
+
+#cpu {
+  padding: 0 10px;
+  color: @color3;
+}
+
+#memory {
+  padding: 0 10px;
+  color: @color1;
+}
+
+#custom-uptime {
+  padding: 0 10px;
+  color: @color2;
+}
+
+#custom-clipboard {
+  padding: 0 10px;
+  color: @text;
+}
+
+#custom-bluetooth {
+  padding: 0 10px;
+  color: @color1;
+}
+
+#network {
+  padding: 0 10px;
+  color: @color1;
+}
+
+#idle_inhibitor {
+  padding: 0 10px 0 0;
+  color: @borders;
+}
+
+#idle_inhibitor.activated {
+  color: @focused;
+}
+
+#backlight,
+#wireplumber {
+  padding: 0 5px;
+  color: @color3;
+}
+
+#wireplumber.muted {
+  color: @urgent;
+}
+
+#custom-swaync {
+  padding: 0 10px 0 5px;
+  font-size: 16px;
+  color: @color2;
+}
+
+#battery {
+  padding: 0 10px;
+  color: @color3;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @focused2;
+}
+
+#battery.critical:not(.charging) {
+  color: @urgent;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#clock:hover,
+#battery:hover,
+#custom-clipboard:hover,
+#custom-bluetooth:hover,
+#idle_inhibitor:hover,
+#custom-swaync:hover,
+#backlight:hover,
+#wireplumber:hover {
+  color: @focused;
+}
+
+@keyframes blink {
+  to {
+    color: @second-background;
+  }
+}
+
+#workspaces button:nth-child(1).active { color: @urgent;   background-color: @second-background; }
+#workspaces button:nth-child(2).active { color: @orange;   background-color: @second-background; }
+#workspaces button:nth-child(3).active { color: @focused;  background-color: @second-background; }
+#workspaces button:nth-child(4).active { color: @focused2; background-color: @second-background; }
+#workspaces button:nth-child(5).active { color: @color1;   background-color: @second-background; }
+#workspaces button:nth-child(6).active { color: @color2;   background-color: @second-background; }
